@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz-game</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="screen active" id="start-screen">
@@ -20,22 +22,21 @@
                 <p>
                     Question <span id="current-question">1</span> of <span>5</span>
                 </p>
-                
+
                 <p>
                     Score: <span id="score">0</span>
                 </p>
             </div>
-        </div>
+            <div id="answers-container" class="answers-container">
 
-        <div id="answers-container" class="answers-container">
-            
-        </div>
+            </div>
 
-        <div class="progres-bar">
-            <div id="progress" class="progress"></div>
-        </div>
+            <div class="progres-bar">
+                <div id="progress" class="progress"></div>
+            </div>
 
-        <div id="result-screen">
+        </div>
+        <div id="result-screen" class="screen">
             <h1>Quiz Results</h1>
             <div class="result-info">
                 <p>
@@ -44,8 +45,9 @@
 
                 <div id="result-message">Good job!</div>
             </div>
+            <button id="restart-btn">Restart Quiz</button>
         </div>
-        <button id="restart-btn">Restart Quiz</button>
     </div>
 </body>
+
 </html>
