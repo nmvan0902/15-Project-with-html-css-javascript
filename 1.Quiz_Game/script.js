@@ -3,7 +3,7 @@ const quizScreen = document.getElementById("quiz-screen")
 const resultScreen = document.getElementById("result-screen")
 const startButton = document.getElementById("start-btn")
 const questionText = document.getElementById("question-text")
-const answersContainer = document.getElementById("answers-conatiner")
+const answersContainer = document.getElementById("answers-container")
 const currentQuestionSpan = document.getElementById("current-question")
 const totalQuestionSpan = document.getElementById("total-questions")
 const scoreSpan = document.getElementById("score")
@@ -66,7 +66,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let answersDisabled = false;
 
-totalQuestionSpan.texContent = quizQuestions.length;
+totalQuestionSpan.textContent = quizQuestions.length;
 maxScoreSpan.textContent = quizQuestions.length;
 
 // EVENT LISTENER
@@ -98,13 +98,14 @@ function showQuestion() {
 
     answersContainer.innerHTML = "";
 
-    currentQuestion.answers.forEach(answer => {
+    currentQuestion.answers.map(answer => {
         const button = document.createElement("button");
         button.textContent = answer.text;
         button.classList.add("answer-btn");
 
         // what is dataset?
         button.dataset.correct = answer.correct;
+        answersContainer.append(button);
 
         button.addEventListener("click", selectAnswer);
     })
@@ -117,6 +118,7 @@ function selectAnswer(event) {
     answersDisabled = true;
 
     const selectedButton = event.target;
+    console.log(event.target)
     const isCorrect = selectedButton.dataset.correct === "true";
 
     Array.from(answersContainer.children).forEach(button => {
